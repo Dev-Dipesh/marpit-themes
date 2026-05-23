@@ -11,7 +11,7 @@ Hosted here so the raw URLs can be referenced from User `settings.json` and the 
 | `clean` | Minimalist white, serif headers — articles, reading-style decks |
 | `dark` | Dark slate, cyan/amber accents — demos, screenshares |
 | `consulting` | Off-white + red accent — Bain-leaning client decks with reusable business layouts |
-| `mckinsey` | Charcoal/blue/gold — executive consulting style |
+| `mckinsey` | Charcoal/blue/gold — executive consulting style with reusable business layouts |
 | `tech` | Monospace headers, code-forward — architecture/engineering |
 | `pitch` | Bold large-type — covers, section transitions, single-message slides |
 | `indigo` | IndiGo Airlines brand — navy/white with auto-branded wordmark, for IndiGo client decks |
@@ -48,7 +48,7 @@ Apply with `<!-- _class: <name> -->` on a slide:
 
 - `clean`, `dark` — `title`
 - `consulting` — `title`, `divider`, `takeaway`, `section`, `metric`, `split-h`, `cta`
-- `mckinsey` — `title`, `divider`, `takeaway`
+- `mckinsey` — `title`, `divider`, `takeaway`, `section`, `metric`, `split-h`, `cta`, `diagram-focus`, `chart-focus`
 - `tech` — `title`, `terminal`
 - `pitch` — `cover`, `light`, `quote`
 - `indigo` — `title` (light), `cover`, `cover-bleed`, `cover-geometric`, `cover-split`, `divider`, `takeaway`, `section`, `metric`, `split-h`
@@ -60,7 +60,7 @@ All themes ship the same grid helpers (require `markdown.marp.html: "all"`):
 - `.cols` / `.cols-2` — two equal columns
 - `.cols-3` — three equal columns
 
-Indigo and consulting themes add:
+Indigo, consulting, and mckinsey themes add:
 
 - `.cards` — 3-column card grid (image on top, title + body below). Each card uses `<div class="card">` containing an image + `<div class="body">` with `### Title` and body text.
 - `.matrix` — 2x2 decision matrix. Each quadrant is `<div class="q">` (or `<div class="q alt">` for the alternate accent).
@@ -142,12 +142,76 @@ One workstream is delivered end-to-end.
 </div>
 ```
 
+The `mckinsey` theme supports the same layout helper names, tuned to its charcoal / blue / gold palette.
+
+## McKinsey diagram and chart helpers
+
+The `mckinsey` theme is intended for executive decks with more architecture, operating-model, chart, and roadmap content. In addition to the consulting helper names above, it includes:
+
+- `diagram-focus` / `chart-focus` — slide classes with tighter padding for large visuals.
+- `.diagram-wide` — full-width framed diagram area for architecture, roadmap, or market-map images.
+- `.diagram-split` + `.diagram-panel` + `.insight-panel` — visual on the left, executive interpretation on the right.
+- `.chart-grid` + `.chart-card` — 2x2 chart or KPI panel grid. Use `.chart-card.wide` to span both columns and `.chart-card.alt` for gold accent.
+- `.chart-title` and `.chart-note` — compact chart heading and source / caveat text.
+- `.bar-chart`, `.bar-row`, `.bar-label`, `.bar-track`, `.bar-fill`, `.bar-value` — simple native HTML bar charts.
+- `.timeline` + `.timeline-item` + `.timeline-date` — four-stage roadmap or milestone strip.
+- `.process-strip` + `.process-step` + `.process-num` — five-step executive process flow.
+
+Example diagram split:
+
+```html
+<!-- _class: diagram-focus -->
+
+# Target operating model
+
+<div class="diagram-split">
+<div class="diagram-panel">
+
+![w:100%](diagram.png)
+
+</div>
+<div class="insight-panel">
+
+## Executive readout
+
+- The platform team owns controls
+- Squads own workflow implementation
+- Evidence is captured at approval gates
+
+</div>
+</div>
+```
+
+Example native bar chart:
+
+```html
+<div class="chart-card">
+<div class="chart-title">Run-rate savings by lever</div>
+<div class="bar-chart">
+<div class="bar-row"><div class="bar-label">Triage</div><div class="bar-track"><div class="bar-fill" style="width: 72%;"></div></div><div class="bar-value">72</div></div>
+<div class="bar-row"><div class="bar-label">Review</div><div class="bar-track"><div class="bar-fill alt" style="width: 54%;"></div></div><div class="bar-value">54</div></div>
+</div>
+<div class="chart-note">Illustrative values for layout guidance.</div>
+</div>
+```
+
 To override the consulting accent color for a client deck, set the CSS variable once near the top of the deck:
 
 ```html
 <style>
 section {
   --consulting-red: #C00000;
+}
+</style>
+```
+
+For `mckinsey`, override the core blue/gold accents the same way:
+
+```html
+<style>
+section {
+  --mck-blue: #1F4E79;
+  --mck-gold: #C9A227;
 }
 </style>
 ```
