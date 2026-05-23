@@ -81,6 +81,37 @@ Indigo theme adds two more:
 
 For non-equal splits, inline the grid template: `<div class="cols" style="grid-template-columns: 2fr 1fr;">`.
 
+## Per-slide image override (indigo `cover-split`)
+
+The `cover-split` variant exposes two CSS variables so you can swap the right-column image without editing the theme:
+
+```markdown
+<!-- _class: cover-split -->
+
+<style scoped>
+section {
+  --split-image: url('https://example.com/your-image.jpg');
+  --split-image-x: -120px;   /* horizontal offset to center the subject */
+}
+</style>
+
+# Slide title
+
+Subtitle text on the left
+```
+
+Tune `--split-image-x` until the subject of your image lands centered in the right column (negative pulls left, positive pulls right).
+
+## Native Marp directives for ad-hoc layouts
+
+For one-off slides that don't need a theme class, use Marp's built-in syntax:
+
+- `![bg right](url)` — image fills right half
+- `![bg left](url)` — image fills left half
+- `![bg right 40%](url)` — image fills right 40%
+- `<!-- _backgroundColor: #001B94 -->` — solid background color per slide
+- `<style scoped>` — arbitrary per-slide CSS (great for two-color splits, custom backgrounds, etc.)
+
 ## Image sizing (Marp native syntax)
 
 Inside `![]` brackets:

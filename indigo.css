@@ -396,18 +396,19 @@ section.cover-geometric p {
   max-width: 620px;
 }
 
-/* cover-split — white left (title), image fills entire right column. */
-/* Image at natural size positioned to put plane at centre of right column. */
-/* A white overlay masks the left half so the image is only visible on the right. */
-/* No color seam between image and theme bg — user sees image, not bg. */
+/* cover-split — white left (title), image fills right column. */
+/* Image is overrideable per slide via the --split-image CSS variable */
+/* (and --split-image-x to tune the horizontal offset). See README. */
 section.cover-split {
+  --split-image: url('https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/assets/indigo-cover.webp');
+  --split-image-x: 207px;
   background-color: #FFFFFF;
   background-image:
     linear-gradient(to right, #FFFFFF 0%, #FFFFFF 50%, transparent 50%, transparent 100%),
-    url('https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/assets/indigo-cover.webp');
+    var(--split-image);
   background-repeat: no-repeat, no-repeat;
   background-size: 100% 100%, auto;
-  background-position: 0 0, 207px center;
+  background-position: 0 0, var(--split-image-x) center;
   color: #1F2937;
   padding: 96px 50% 96px 80px;
   display: flex;
