@@ -193,6 +193,9 @@ section.title {
 section.title h1 { color: var(--consulting-white); font-size: 56px; max-width: 900px; }
 section.title h1::after { background: var(--consulting-red); width: 96px; }
 section.title p { color: #D1D5DB; font-size: 22px; max-width: 800px; }
+section.title strong,
+section.title em,
+section.title a { color: var(--consulting-white); }
 
 section.divider {
   background: var(--consulting-red);
@@ -204,6 +207,9 @@ section.divider {
 section.divider h1 { color: var(--consulting-white); font-size: 52px; }
 section.divider h1::after { background: var(--consulting-white); }
 section.divider p { color: rgba(255, 255, 255, 0.78); font-size: 22px; }
+section.divider strong,
+section.divider em,
+section.divider a { color: var(--consulting-white); }
 
 section.takeaway {
   background: var(--consulting-red-soft);
@@ -266,7 +272,9 @@ section.cta {
 section.cta h1,
 section.cta p,
 section.cta li,
-section.cta strong { color: var(--consulting-white); }
+section.cta strong,
+section.cta em,
+section.cta a { color: var(--consulting-white); }
 section.cta h1 { max-width: 900px; }
 section.cta h1::after { background: var(--consulting-red); }
 
