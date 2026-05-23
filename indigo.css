@@ -522,6 +522,42 @@ section.metric p {
   margin-right: auto;
 }
 
+/* Split-word slide: top word above the split, bottom word below it. */
+section.word-split {
+  --word-split-top: #D71920;
+  --word-split-bottom: #FFFFFF;
+
+  background: linear-gradient(to bottom, #FFFFFF 0 50%, #000000 50% 100%);
+  display: block;
+  padding: 0;
+  text-align: center;
+}
+section.word-split::before { display: none; }
+section.word-split h1 {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 92px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+}
+section.word-split h1::after { display: none; }
+section.word-split h1:nth-of-type(1) {
+  top: 50%;
+  color: var(--word-split-top);
+  transform: translateY(-100%);
+}
+section.word-split h1:nth-of-type(2) {
+  top: 50%;
+  color: var(--word-split-bottom);
+  transform: translateY(0);
+}
+section.word-split > footer { color: rgba(255, 255, 255, 0.55); }
+section.word-split::after { color: rgba(255, 255, 255, 0.65); }
+
 /* ============ Lefthand h1 + right content layout ============ */
 /* h1 stays in left column; subsequent content (lists, paragraphs) flows to right. */
 section.split-h {
