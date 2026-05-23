@@ -1,0 +1,226 @@
+/* @theme indigo */
+/* IndiGo Airlines deck — navy/white brand palette, auto-branded with */
+/* wordmark in corner, executive layout for PMs, architects, HoEs, VPs, CxOs. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+section {
+  width: 1280px;
+  height: 720px;
+  background: #FFFFFF;
+  color: #1F2937;
+  font-family: 'Inter', -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  padding: 56px 64px;
+  letter-spacing: -0.005em;
+  position: relative;
+}
+
+/* Auto-branded wordmark in the top-right of every slide. */
+section::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  right: 36px;
+  width: 96px;
+  height: 26px;
+  background: url('https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/assets/indigo-wordmark.png') no-repeat;
+  background-size: contain;
+  background-position: top right;
+  opacity: 0.95;
+}
+
+/* Page number */
+section::after {
+  font-size: 11px;
+  color: #94A3B8;
+  right: 36px;
+  bottom: 22px;
+}
+
+h1 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #001B94;
+  letter-spacing: -0.03em;
+  margin-bottom: 22px;
+  line-height: 1.15;
+  margin-top: 14px;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  background: #001B94;
+  margin-top: 12px;
+  border-radius: 2px;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: 10px;
+}
+
+p, li {
+  font-size: 22px;
+  color: #2F3A45;
+}
+li { margin-bottom: 10px; }
+li::marker { color: #001B94; }
+ul { padding-left: 1.1em; }
+
+strong { color: #001B94; font-weight: 700; }
+em { color: #4B5563; }
+a { color: #0066FF; text-decoration: none; border-bottom: 1px solid #BFDBFE; }
+
+blockquote {
+  border-left: 5px solid #001B94;
+  background: #EFF6FF;
+  padding: 14px 20px;
+  margin: 20px 0;
+  color: #1E293B;
+}
+blockquote p { margin: 0; font-size: 22px; font-weight: 500; }
+
+table { font-size: 16px; border-collapse: collapse; width: 100%; margin-top: 16px; }
+th {
+  background: #001B94;
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 10px 12px;
+  text-align: left;
+}
+td { padding: 10px 12px; border: 1px solid #DBEAFE; color: #2F3A45; }
+tr:nth-child(even) td { background: #F8FAFC; }
+
+code {
+  font-family: "SF Mono", "JetBrains Mono", Consolas, monospace;
+  background: #EFF6FF;
+  color: #001B94;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: #0B1220;
+  color: #E2E8F0;
+  padding: 18px 22px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+pre code { background: transparent; color: inherit; padding: 0; }
+
+hr { border: 0; border-top: 1px solid #E2E8F0; margin: 24px 0; }
+
+/* Layout helpers (require markdown.marp.html: "all") */
+.cols, .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: start; }
+.cols > *, .cols-2 > *, .cols-3 > * { min-width: 0; }
+.cols img, .cols-2 img, .cols-3 img { max-width: 100%; height: auto; }
+
+/* ============ Slide variants ============ */
+
+/* Title — full navy with large white wordmark and deck title */
+section.title {
+  background: #001B94;
+  color: #FFFFFF;
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.title::before {
+  /* Invert the dark wordmark to white on the navy background */
+  filter: brightness(0) invert(1);
+  opacity: 1;
+  top: 36px;
+  right: 48px;
+  width: 120px;
+  height: 32px;
+}
+section.title h1 {
+  color: #FFFFFF;
+  font-size: 56px;
+  margin-top: 0;
+  max-width: 900px;
+}
+section.title h1::after { background: #FFFFFF; width: 96px; }
+section.title p { color: #DBEAFE; font-size: 24px; max-width: 800px; }
+section.title::after { color: #94A3B8; }
+
+/* Cover — full-bleed brand hero image */
+section.cover {
+  background: #001B94 url('https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/assets/indigo-cover.webp') no-repeat center center;
+  background-size: cover;
+  color: #FFFFFF;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+section.cover::before {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+  top: 36px;
+  right: 48px;
+  width: 120px;
+  height: 32px;
+}
+section.cover h1 {
+  color: #FFFFFF;
+  font-size: 60px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  margin-top: 0;
+}
+section.cover h1::after { background: #FFFFFF; width: 96px; }
+section.cover p {
+  color: #FFFFFF;
+  font-size: 22px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  max-width: 700px;
+}
+section.cover::after { color: rgba(255, 255, 255, 0.7); }
+
+/* Divider — navy with white type, centered */
+section.divider {
+  background: #001B94;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.divider::before {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+section.divider h1 { color: #FFFFFF; font-size: 52px; margin-top: 0; }
+section.divider h1::after { background: #60A5FA; }
+section.divider p { color: #DBEAFE; font-size: 22px; }
+
+/* Takeaway — light blue tint with navy h1, for executive emphasis slides */
+section.takeaway {
+  background: #EFF6FF;
+}
+section.takeaway h1 { color: #001B94; }
+section.takeaway h1::after { background: #001B94; }
+
+/* Section — small navy strip across the top, for section markers within a deck */
+section.section {
+  border-top: 8px solid #001B94;
+  padding-top: 64px;
+}

@@ -14,6 +14,7 @@ Hosted here so the raw URLs can be referenced from User `settings.json` and the 
 | `mckinsey` | Charcoal/blue/gold — executive consulting style |
 | `tech` | Monospace headers, code-forward — architecture/engineering |
 | `pitch` | Bold large-type — covers, section transitions, single-message slides |
+| `indigo` | IndiGo Airlines brand — navy/white with auto-branded wordmark, for IndiGo client decks |
 
 ## Usage
 
@@ -26,7 +27,8 @@ In User `settings.json`:
   "https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/consulting.css",
   "https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/mckinsey.css",
   "https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/tech.css",
-  "https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/pitch.css"
+  "https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/pitch.css",
+  "https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/indigo.css"
 ]
 ```
 
@@ -42,9 +44,52 @@ paginate: true
 
 ## Slide-class variants
 
-Several themes define per-slide variants — apply with `<!-- _class: <name> -->`:
+Apply with `<!-- _class: <name> -->` on a slide:
 
 - `clean`, `dark` — `title`
 - `consulting`, `mckinsey` — `title`, `divider`, `takeaway`
 - `tech` — `title`, `terminal`
 - `pitch` — `cover`, `light`, `quote`
+- `indigo` — `title`, `cover`, `divider`, `takeaway`, `section`
+
+## Layout helpers
+
+All themes ship the same grid helpers (require `markdown.marp.html: "all"`):
+
+- `.cols` / `.cols-2` — two equal columns
+- `.cols-3` — three equal columns
+
+```html
+<div class="cols">
+<div>
+
+## Left
+
+</div>
+<div>
+
+## Right
+
+</div>
+</div>
+```
+
+For non-equal splits, inline the grid template: `<div class="cols" style="grid-template-columns: 2fr 1fr;">`.
+
+## Image sizing (Marp native syntax)
+
+Inside `![]` brackets:
+
+- `![w:400](url)` — 400px wide
+- `![w:50%](url)` — 50% of container width
+- `![bg cover](url)` — full-slide background
+- `![bg right 40%](url)` — right-side background occupying 40% of slide width
+
+## Assets
+
+The `assets/` directory holds image assets referenced by themes (currently the IndiGo theme).  Themes reference these via the same `raw.githubusercontent.com` URL pattern so they work without local files.
+
+## Editing notes
+
+- Themes are cached by the Marp extension. After pushing CSS changes, run **Marp: Clear Marp themes cache** in the VSCode command palette (or reload the window).
+- For theme development, edit locally then push — the User `settings.json` URLs always point at `main`.

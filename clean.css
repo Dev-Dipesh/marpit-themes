@@ -78,7 +78,7 @@ td { padding: 10px 12px; border-bottom: 1px solid #E2E8F0; }
 
 hr { border: 0; border-top: 1px solid #E2E8F0; margin: 24px 0; }
 
-/* Layout helpers (require markdown.marp.enableHtml: true) */
+/* Layout helpers (require markdown.marp.html: "all") */
 .cols, .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
 .cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: start; }
 .cols > *, .cols-2 > *, .cols-3 > * { min-width: 0; }

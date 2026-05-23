@@ -93,7 +93,7 @@ pre {
 }
 pre code { background: transparent; color: inherit; padding: 0; }
 
-/* Layout helpers (require markdown.marp.enableHtml: true) */
+/* Layout helpers (require markdown.marp.html: "all") */
 .cols, .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; align-items: start; }
 .cols > *, .cols-2 > *, .cols-3 > * { min-width: 0; }
