@@ -1,0 +1,131 @@
+/* @theme mckinsey */
+/* Executive consulting-style — charcoal/blue/gold palette, with title, */
+/* divider, and takeaway slide variants. List fonts sized for readability. */
+
+section {
+  width: 1280px;
+  height: 720px;
+  background: #F8F6EF;
+  color: #1F2933;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  padding: 50px 60px;
+  letter-spacing: -0.01em;
+}
+
+section::after {
+  font-size: 12px;
+  color: #8A8F98;
+  right: 32px;
+  bottom: 22px;
+}
+
+h1 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.035em;
+  margin-bottom: 22px;
+  line-height: 1.15;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  background: #1F4E79;
+  margin-top: 14px;
+  border-radius: 2px;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 650;
+  color: #1F2937;
+  letter-spacing: -0.025em;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 650;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+p, li {
+  font-size: 22px;
+  line-height: 1.5;
+  color: #2F3A45;
+}
+li { margin-bottom: 10px; }
+li::marker { color: #1F4E79; }
+ul { padding-left: 1.1em; }
+
+strong { color: #111827; font-weight: 700; }
+em { color: #4B5563; }
+
+blockquote {
+  border-left: 5px solid #1F4E79;
+  background: #EEF3F8;
+  padding: 14px 20px;
+  margin: 20px 0;
+  color: #1F2937;
+}
+blockquote p { margin: 0; font-size: 22px; font-weight: 500; }
+
+table { font-size: 16px; border-collapse: collapse; width: 100%; margin-top: 16px; }
+th { background: #1F2937; color: #FFFFFF; font-weight: 650; padding: 10px 12px; text-align: left; }
+td { padding: 10px 12px; border: 1px solid #D8DEE6; color: #2F3A45; }
+tr:nth-child(even) td { background: #F1F3F5; }
+
+code {
+  font-family: "SFMono-Regular", "JetBrains Mono", Consolas, monospace;
+  background: #ECEFF3;
+  color: #111827;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: #111827;
+  color: #F9FAFB;
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+pre code { background: transparent; color: inherit; padding: 0; }
+
+section.title {
+  background: linear-gradient(135deg, #111827 0%, #1F2937 60%, #1F4E79 100%);
+  color: #FFFFFF;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.title h1 { color: #FFFFFF; font-size: 48px; max-width: 900px; }
+section.title h1::after { background: #C9A227; width: 96px; }
+section.title p { color: #E5E7EB; font-size: 22px; max-width: 800px; }
+section.title::after { color: #CBD5E1; }
+
+section.divider {
+  background: #111827;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.divider h1 { color: #FFFFFF; font-size: 46px; }
+section.divider h1::after { background: #C9A227; }
+section.divider p { color: #D1D5DB; font-size: 22px; }
+
+section.takeaway {
+  background: #EEF3F8;
+}
+section.takeaway h1 { color: #1F4E79; }
+section.takeaway h1::after { background: #C9A227; }

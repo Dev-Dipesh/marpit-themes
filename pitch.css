@@ -1,0 +1,108 @@
+/* @theme pitch */
+/* Bold large-type — covers, section transitions, single-message slides. */
+
+section {
+  width: 1280px;
+  height: 720px;
+  background: #0F172A;
+  color: #F8FAFC;
+  font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 28px;
+  line-height: 1.4;
+  padding: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  letter-spacing: -0.02em;
+}
+
+section::after {
+  font-size: 12px;
+  color: #475569;
+  right: 36px;
+  bottom: 24px;
+}
+
+h1 {
+  font-size: 72px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin-bottom: 28px;
+  max-width: 1000px;
+}
+
+h2 {
+  font-size: 44px;
+  font-weight: 700;
+  color: #F1F5F9;
+  margin-bottom: 20px;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #CBD5E1;
+  margin-bottom: 14px;
+}
+
+p, li { font-size: 28px; color: #CBD5E1; }
+li { margin-bottom: 14px; }
+li::marker { color: #F59E0B; }
+strong { color: #F59E0B; }
+em { color: #FBBF24; font-style: normal; }
+
+blockquote {
+  border: none;
+  font-size: 40px;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.25;
+  padding: 0;
+  max-width: 900px;
+}
+blockquote p { margin: 0; }
+
+code {
+  font-family: "SF Mono", "JetBrains Mono", Consolas, monospace;
+  background: #1E293B;
+  color: #F59E0B;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+pre {
+  background: #020617;
+  color: #E2E8F0;
+  padding: 20px 24px;
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 1.4;
+}
+pre code { background: transparent; color: inherit; padding: 0; }
+
+section.light {
+  background: #FAFAF7;
+  color: #0F172A;
+}
+section.light h1 { color: #0F172A; }
+section.light h2 { color: #1F2937; }
+section.light p, section.light li { color: #334155; }
+section.light strong { color: #C8102E; }
+section.light li::marker { color: #C8102E; }
+
+section.cover {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+}
+section.cover h1 { font-size: 84px; }
+section.cover p { font-size: 32px; color: #94A3B8; }
+
+section.quote {
+  background: #0F172A;
+  text-align: center;
+  align-items: center;
+}
+section.quote blockquote { text-align: center; }

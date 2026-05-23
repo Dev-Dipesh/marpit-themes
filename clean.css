@@ -1,0 +1,86 @@
+/* @theme clean */
+/* Minimalist white deck — serif headers, sans body, generous whitespace. */
+
+section {
+  width: 1280px;
+  height: 720px;
+  background: #FFFFFF;
+  color: #1F2933;
+  font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  padding: 56px 72px;
+  letter-spacing: -0.005em;
+}
+
+section::after {
+  font-size: 12px;
+  color: #94A3B8;
+  right: 36px;
+  bottom: 24px;
+}
+
+h1, h2, h3 {
+  font-family: "Iowan Old Style", "Charter", Georgia, serif;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 40px; font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
+h2 { font-size: 28px; font-weight: 600; margin-bottom: 16px; }
+h3 { font-size: 22px; font-weight: 600; margin-bottom: 10px; }
+
+p, li {
+  font-size: 22px;
+  color: #334155;
+}
+
+li { margin-bottom: 10px; }
+li::marker { color: #64748B; }
+
+strong { color: #0F172A; }
+em { color: #475569; }
+a { color: #2563EB; text-decoration: none; border-bottom: 1px solid #93C5FD; }
+
+blockquote {
+  border-left: 3px solid #CBD5E1;
+  padding: 8px 20px;
+  color: #475569;
+  font-style: italic;
+}
+blockquote p { font-size: 22px; }
+
+code {
+  font-family: "SF Mono", "JetBrains Mono", Consolas, monospace;
+  background: #F1F5F9;
+  color: #0F172A;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: #0F172A;
+  color: #E2E8F0;
+  padding: 18px 22px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+pre code { background: transparent; color: inherit; padding: 0; }
+
+table { font-size: 18px; border-collapse: collapse; width: 100%; }
+th { text-align: left; padding: 10px 12px; border-bottom: 2px solid #0F172A; }
+td { padding: 10px 12px; border-bottom: 1px solid #E2E8F0; }
+
+hr { border: 0; border-top: 1px solid #E2E8F0; margin: 24px 0; }
+
+section.title {
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px 96px;
+}
+section.title h1 { font-size: 56px; max-width: 900px; }
+section.title p { color: #64748B; font-size: 24px; max-width: 800px; }

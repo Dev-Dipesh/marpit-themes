@@ -1,0 +1,108 @@
+/* @theme tech */
+/* Code-forward — monospace headers, prominent code blocks. */
+
+section {
+  width: 1280px;
+  height: 720px;
+  background: #FBFBFD;
+  color: #1F2937;
+  font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1.55;
+  padding: 56px 64px;
+}
+
+section::after {
+  font-family: "JetBrains Mono", "SF Mono", monospace;
+  font-size: 11px;
+  color: #6B7280;
+  right: 32px;
+  bottom: 22px;
+}
+
+h1, h2, h3 {
+  font-family: "JetBrains Mono", "SF Mono", "IBM Plex Mono", Consolas, monospace;
+  color: #0B1220;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+h1::before { content: "// "; color: #10B981; }
+
+h2 { font-size: 24px; font-weight: 600; margin-bottom: 14px; color: #1F2937; }
+h3 { font-size: 20px; font-weight: 600; margin-bottom: 10px; color: #374151; }
+
+p, li { font-size: 22px; color: #2F3A45; }
+li { margin-bottom: 10px; }
+li::marker { color: #10B981; }
+ul { padding-left: 1.1em; }
+
+strong { color: #0B1220; }
+em { color: #4B5563; }
+
+code {
+  font-family: "JetBrains Mono", "SF Mono", Consolas, monospace;
+  background: #E6F4EE;
+  color: #065F46;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: #0B1220;
+  color: #E2E8F0;
+  padding: 20px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-left: 4px solid #10B981;
+}
+pre code { background: transparent; color: inherit; padding: 0; }
+
+blockquote {
+  border-left: 4px solid #10B981;
+  background: #ECFDF5;
+  padding: 14px 20px;
+  color: #064E3B;
+  font-family: "JetBrains Mono", "SF Mono", monospace;
+  font-size: 18px;
+}
+blockquote p { margin: 0; }
+
+table { font-size: 18px; border-collapse: collapse; width: 100%; }
+th {
+  text-align: left;
+  background: #0B1220;
+  color: #E2E8F0;
+  padding: 10px 12px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+}
+td { padding: 10px 12px; border-bottom: 1px solid #E5E7EB; }
+
+hr { border: 0; border-top: 1px dashed #CBD5E1; margin: 24px 0; }
+
+section.title {
+  background: #0B1220;
+  color: #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.title h1 { color: #10B981; font-size: 48px; }
+section.title h1::before { color: #E2E8F0; }
+section.title p { color: #94A3B8; font-family: "JetBrains Mono", monospace; font-size: 20px; }
+
+section.terminal {
+  background: #0B1220;
+  color: #10B981;
+  font-family: "JetBrains Mono", "SF Mono", monospace;
+}
+section.terminal h1, section.terminal h2, section.terminal h3 { color: #10B981; }
+section.terminal p, section.terminal li { color: #E2E8F0; font-family: "JetBrains Mono", monospace; font-size: 20px; }
