@@ -50,7 +50,7 @@ Apply with `<!-- _class: <name> -->` on a slide:
 - `consulting`, `mckinsey` — `title`, `divider`, `takeaway`
 - `tech` — `title`, `terminal`
 - `pitch` — `cover`, `light`, `quote`
-- `indigo` — `title`, `cover`, `divider`, `takeaway`, `section`
+- `indigo` — `title`, `cover`, `cover-bleed`, `cover-geometric`, `cover-split`, `divider`, `takeaway`, `section`
 
 ## Layout helpers
 
