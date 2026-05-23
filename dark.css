@@ -82,6 +82,21 @@ td { padding: 10px 12px; border-bottom: 1px solid #1E293B; color: #CBD5E1; }
 
 hr { border: 0; border-top: 1px solid #1E293B; margin: 24px 0; }
 
+/* Footer + header — always anchored to slide edges (override flex flow) */
+section > footer,
+section > header {
+  position: absolute;
+  left: 36px;
+  right: 80px;
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  color: #64748B;
+  text-align: left;
+}
+section > footer { bottom: 22px; }
+section > header { top: 22px; }
+
 /* Layout helpers (require markdown.marp.html: "all") */
 .cols, .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
 .cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: start; }
