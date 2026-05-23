@@ -202,33 +202,35 @@ section.cover-split > footer { color: #94A3B8; }
   line-height: 1.45;
 }
 
-/* 2x2 decision matrix */
+/* 2x2 decision matrix — hairline cross grid, no card boxes or accent strips. */
 .matrix {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 14px;
-  margin-top: 12px;
+  margin-top: 18px;
 }
 .matrix .q {
-  padding: 18px 22px;
-  background: #F8FAFC;
-  border-radius: 8px;
-  border-left: 4px solid #001B94;
+  padding: 22px 28px;
 }
+.matrix .q:nth-child(1),
+.matrix .q:nth-child(3) { border-right: 1px solid #E5E7EB; }
+.matrix .q:nth-child(1),
+.matrix .q:nth-child(2) { border-bottom: 1px solid #E5E7EB; }
 .matrix .q h3 {
-  margin: 0 0 8px 0;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  margin: 0 0 6px 0;
   font-size: 18px;
+  font-weight: 700;
   color: #001B94;
+  letter-spacing: -0.02em;
 }
 .matrix .q p,
 .matrix .q li {
   margin: 0;
   font-size: 16px;
-  color: #2F3A45;
+  color: #4B5563;
+  line-height: 1.5;
 }
-.matrix .q.alt { border-left-color: #60A5FA; }
-.matrix .q.alt h3 { color: #1E40AF; }
 
 /* ============ Title slide (light variant — distinct from cover) ============ */
 section.title {
@@ -304,14 +306,16 @@ section.cover p {
 }
 
 /* cover-bleed — full-bleed hero with gradient mask; plane shifted toward right */
+/* Image kept at natural pixel size to avoid pixelation; positioned so the */
+/* plane (at image 50%/49%) lands at ~75% of slide width. */
 section.cover-bleed {
-  background-color: #001B94;
+  background-color: #070099;
   background-image:
-    linear-gradient(90deg, rgba(0, 27, 148, 0.95) 0%, rgba(0, 27, 148, 0.7) 35%, rgba(0, 27, 148, 0.15) 75%, rgba(0, 27, 148, 0) 100%),
+    linear-gradient(90deg, rgba(7, 0, 153, 0.95) 0%, rgba(7, 0, 153, 0.7) 35%, rgba(7, 0, 153, 0.15) 75%, rgba(7, 0, 153, 0) 100%),
     url('https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/assets/indigo-cover.webp');
   background-repeat: no-repeat, no-repeat;
-  background-size: 100% 100%, 130% auto;
-  background-position: 0 0, left center;
+  background-size: 100% 100%, auto;
+  background-position: 0 0, 207px center;
   color: #FFFFFF;
   padding: 96px 80px;
   display: flex;
@@ -392,15 +396,18 @@ section.cover-geometric p {
   max-width: 620px;
 }
 
-/* cover-split — white left (title), navy right with image (un-squished, centered) */
+/* cover-split — white left (title), image fills entire right column. */
+/* Image at natural size positioned to put plane at centre of right column. */
+/* A white overlay masks the left half so the image is only visible on the right. */
+/* No color seam between image and theme bg — user sees image, not bg. */
 section.cover-split {
   background-color: #FFFFFF;
   background-image:
-    url('https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/assets/indigo-cover.webp'),
-    linear-gradient(to right, transparent 0%, transparent 50%, #001B94 50%, #001B94 100%);
+    linear-gradient(to right, #FFFFFF 0%, #FFFFFF 50%, transparent 50%, transparent 100%),
+    url('https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/assets/indigo-cover.webp');
   background-repeat: no-repeat, no-repeat;
-  background-size: 50% auto, 100% 100%;
-  background-position: right center, 0 0;
+  background-size: 100% 100%, auto;
+  background-position: 0 0, 207px center;
   color: #1F2937;
   padding: 96px 50% 96px 80px;
   display: flex;
