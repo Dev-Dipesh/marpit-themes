@@ -1,12 +1,14 @@
 /* @theme consulting */
 /* Bain-leaning consulting deck — off-white, red accent, structured. */
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
 section {
   width: 1280px;
   height: 720px;
   background: #FAFAF7;
   color: #1F2937;
-  font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Inter', -apple-system, "Helvetica Neue", Arial, sans-serif;
   font-size: 22px;
   line-height: 1.5;
   padding: 52px 64px;
@@ -20,13 +22,17 @@ section::after {
   bottom: 22px;
 }
 
+h1, h2, h3 {
+  font-family: 'Manrope', 'Inter', -apple-system, sans-serif;
+}
+
 h1 {
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 38px;
+  font-weight: 800;
   color: #0B0B0B;
   letter-spacing: -0.03em;
   margin-bottom: 22px;
-  line-height: 1.18;
+  line-height: 1.15;
 }
 h1::after {
   content: "";
@@ -39,7 +45,7 @@ h1::after {
 
 h2 {
   font-size: 26px;
-  font-weight: 650;
+  font-weight: 700;
   color: #1F2937;
   margin-top: 0;
   margin-bottom: 16px;
@@ -47,7 +53,7 @@ h2 {
 
 h3 {
   font-size: 20px;
-  font-weight: 650;
+  font-weight: 700;
   color: #374151;
   margin-bottom: 10px;
 }
@@ -73,7 +79,7 @@ blockquote {
 blockquote p { margin: 0; font-size: 22px; font-weight: 500; }
 
 table { font-size: 16px; border-collapse: collapse; width: 100%; margin-top: 16px; }
-th { background: #0B0B0B; color: #FFFFFF; font-weight: 650; padding: 10px 12px; text-align: left; }
+th { background: #0B0B0B; color: #FFFFFF; font-weight: 700; padding: 10px 12px; text-align: left; font-family: 'Manrope', 'Inter', sans-serif; }
 td { padding: 10px 12px; border: 1px solid #E5E7EB; color: #2F3A45; }
 tr:nth-child(even) td { background: #F3F4F6; }
 
@@ -96,6 +102,12 @@ pre {
 }
 pre code { background: transparent; color: inherit; padding: 0; }
 
+/* Layout helpers (require markdown.marp.enableHtml: true) */
+.cols, .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: start; }
+.cols > *, .cols-2 > *, .cols-3 > * { min-width: 0; }
+.cols img, .cols-2 img, .cols-3 img { max-width: 100%; height: auto; }
+
 section.title {
   background: #0B0B0B;
   color: #FFFFFF;
@@ -104,7 +116,7 @@ section.title {
   flex-direction: column;
   justify-content: center;
 }
-section.title h1 { color: #FFFFFF; font-size: 52px; max-width: 900px; }
+section.title h1 { color: #FFFFFF; font-size: 56px; max-width: 900px; }
 section.title h1::after { background: #C8102E; width: 96px; }
 section.title p { color: #D1D5DB; font-size: 22px; max-width: 800px; }
 section.title::after { color: #6B7280; }
@@ -116,7 +128,7 @@ section.divider {
   flex-direction: column;
   justify-content: center;
 }
-section.divider h1 { color: #FFFFFF; font-size: 48px; }
+section.divider h1 { color: #FFFFFF; font-size: 52px; }
 section.divider h1::after { background: #FFFFFF; }
 section.divider p { color: #FECACA; font-size: 22px; }
 

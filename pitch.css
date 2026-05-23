@@ -1,12 +1,14 @@
 /* @theme pitch */
 /* Bold large-type — covers, section transitions, single-message slides. */
 
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap');
+
 section {
   width: 1280px;
   height: 720px;
   background: #0F172A;
   color: #F8FAFC;
-  font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Inter', -apple-system, "Helvetica Neue", Arial, sans-serif;
   font-size: 28px;
   line-height: 1.4;
   padding: 72px;
@@ -23,18 +25,23 @@ section::after {
   bottom: 24px;
 }
 
+h1, h2, h3 {
+  font-family: 'Bricolage Grotesque', 'Inter', -apple-system, sans-serif;
+  font-optical-sizing: auto;
+}
+
 h1 {
-  font-size: 72px;
+  font-size: 76px;
   font-weight: 800;
   color: #FFFFFF;
-  line-height: 1.05;
+  line-height: 1.02;
   letter-spacing: -0.035em;
   margin-bottom: 28px;
   max-width: 1000px;
 }
 
 h2 {
-  font-size: 44px;
+  font-size: 46px;
   font-weight: 700;
   color: #F1F5F9;
   margin-bottom: 20px;
@@ -56,12 +63,14 @@ em { color: #FBBF24; font-style: normal; }
 
 blockquote {
   border: none;
-  font-size: 40px;
-  font-weight: 600;
+  font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
   color: #FFFFFF;
-  line-height: 1.25;
+  line-height: 1.2;
   padding: 0;
   max-width: 900px;
+  letter-spacing: -0.02em;
 }
 blockquote p { margin: 0; }
 
@@ -84,6 +93,12 @@ pre {
 }
 pre code { background: transparent; color: inherit; padding: 0; }
 
+/* Layout helpers (require markdown.marp.enableHtml: true) */
+.cols, .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; align-items: start; }
+.cols > *, .cols-2 > *, .cols-3 > * { min-width: 0; }
+.cols img, .cols-2 img, .cols-3 img { max-width: 100%; height: auto; }
+
 section.light {
   background: #FAFAF7;
   color: #0F172A;
@@ -97,7 +112,7 @@ section.light li::marker { color: #C8102E; }
 section.cover {
   background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
 }
-section.cover h1 { font-size: 84px; }
+section.cover h1 { font-size: 88px; }
 section.cover p { font-size: 32px; color: #94A3B8; }
 
 section.quote {

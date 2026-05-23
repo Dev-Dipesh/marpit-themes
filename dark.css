@@ -1,12 +1,14 @@
 /* @theme dark */
 /* Dark slate, high contrast — for demos, screenshares, evening reads. */
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
 section {
   width: 1280px;
   height: 720px;
   background: #0B1220;
   color: #E5E7EB;
-  font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Inter', -apple-system, "Helvetica Neue", Arial, sans-serif;
   font-size: 22px;
   line-height: 1.5;
   padding: 56px 72px;
@@ -20,7 +22,11 @@ section::after {
   bottom: 24px;
 }
 
-h1, h2, h3 { color: #F8FAFC; letter-spacing: -0.02em; }
+h1, h2, h3 {
+  font-family: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+  color: #F8FAFC;
+  letter-spacing: -0.02em;
+}
 h1 { font-size: 40px; font-weight: 700; margin-bottom: 22px; line-height: 1.2; }
 h2 { font-size: 28px; font-weight: 600; margin-bottom: 16px; color: #E2E8F0; }
 h3 { font-size: 22px; font-weight: 600; margin-bottom: 10px; color: #CBD5E1; }
@@ -75,6 +81,12 @@ th { text-align: left; background: #1E293B; color: #F8FAFC; padding: 10px 12px; 
 td { padding: 10px 12px; border-bottom: 1px solid #1E293B; color: #CBD5E1; }
 
 hr { border: 0; border-top: 1px solid #1E293B; margin: 24px 0; }
+
+/* Layout helpers (require markdown.marp.enableHtml: true) */
+.cols, .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: start; }
+.cols > *, .cols-2 > *, .cols-3 > * { min-width: 0; }
+.cols img, .cols-2 img, .cols-3 img { max-width: 100%; height: auto; }
 
 section.title {
   background: radial-gradient(circle at 30% 30%, #1E3A8A 0%, #0B1220 65%);

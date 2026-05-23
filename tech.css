@@ -1,19 +1,21 @@
 /* @theme tech */
 /* Code-forward — monospace headers, prominent code blocks. */
 
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
 section {
   width: 1280px;
   height: 720px;
   background: #FBFBFD;
   color: #1F2937;
-  font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Inter', -apple-system, "Helvetica Neue", Arial, sans-serif;
   font-size: 22px;
   line-height: 1.55;
   padding: 56px 64px;
 }
 
 section::after {
-  font-family: "JetBrains Mono", "SF Mono", monospace;
+  font-family: 'JetBrains Mono', "SF Mono", monospace;
   font-size: 11px;
   color: #6B7280;
   right: 32px;
@@ -21,7 +23,7 @@ section::after {
 }
 
 h1, h2, h3 {
-  font-family: "JetBrains Mono", "SF Mono", "IBM Plex Mono", Consolas, monospace;
+  font-family: 'JetBrains Mono', "SF Mono", "IBM Plex Mono", Consolas, monospace;
   color: #0B1220;
   letter-spacing: -0.02em;
 }
@@ -46,7 +48,7 @@ strong { color: #0B1220; }
 em { color: #4B5563; }
 
 code {
-  font-family: "JetBrains Mono", "SF Mono", Consolas, monospace;
+  font-family: 'JetBrains Mono', "SF Mono", Consolas, monospace;
   background: #E6F4EE;
   color: #065F46;
   padding: 2px 6px;
@@ -62,6 +64,7 @@ pre {
   font-size: 16px;
   line-height: 1.5;
   border-left: 4px solid #10B981;
+  font-family: 'JetBrains Mono', "SF Mono", monospace;
 }
 pre code { background: transparent; color: inherit; padding: 0; }
 
@@ -70,7 +73,7 @@ blockquote {
   background: #ECFDF5;
   padding: 14px 20px;
   color: #064E3B;
-  font-family: "JetBrains Mono", "SF Mono", monospace;
+  font-family: 'JetBrains Mono', "SF Mono", monospace;
   font-size: 18px;
 }
 blockquote p { margin: 0; }
@@ -81,12 +84,18 @@ th {
   background: #0B1220;
   color: #E2E8F0;
   padding: 10px 12px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 16px;
 }
 td { padding: 10px 12px; border-bottom: 1px solid #E5E7EB; }
 
 hr { border: 0; border-top: 1px dashed #CBD5E1; margin: 24px 0; }
+
+/* Layout helpers (require markdown.marp.enableHtml: true) */
+.cols, .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: start; }
+.cols > *, .cols-2 > *, .cols-3 > * { min-width: 0; }
+.cols img, .cols-2 img, .cols-3 img { max-width: 100%; height: auto; }
 
 section.title {
   background: #0B1220;
@@ -97,12 +106,12 @@ section.title {
 }
 section.title h1 { color: #10B981; font-size: 48px; }
 section.title h1::before { color: #E2E8F0; }
-section.title p { color: #94A3B8; font-family: "JetBrains Mono", monospace; font-size: 20px; }
+section.title p { color: #94A3B8; font-family: 'JetBrains Mono', monospace; font-size: 20px; }
 
 section.terminal {
   background: #0B1220;
   color: #10B981;
-  font-family: "JetBrains Mono", "SF Mono", monospace;
+  font-family: 'JetBrains Mono', "SF Mono", monospace;
 }
 section.terminal h1, section.terminal h2, section.terminal h3 { color: #10B981; }
-section.terminal p, section.terminal li { color: #E2E8F0; font-family: "JetBrains Mono", monospace; font-size: 20px; }
+section.terminal p, section.terminal li { color: #E2E8F0; font-family: 'JetBrains Mono', monospace; font-size: 20px; }
