@@ -50,7 +50,7 @@ Apply with `<!-- _class: <name> -->` on a slide:
 - `consulting`, `mckinsey` — `title`, `divider`, `takeaway`
 - `tech` — `title`, `terminal`
 - `pitch` — `cover`, `light`, `quote`
-- `indigo` — `title`, `cover`, `cover-bleed`, `cover-geometric`, `cover-split`, `divider`, `takeaway`, `section`
+- `indigo` — `title` (light), `cover`, `cover-bleed`, `cover-geometric`, `cover-split`, `divider`, `takeaway`, `section`, `metric`, `split-h`
 
 ## Layout helpers
 
@@ -58,6 +58,11 @@ All themes ship the same grid helpers (require `markdown.marp.html: "all"`):
 
 - `.cols` / `.cols-2` — two equal columns
 - `.cols-3` — three equal columns
+
+Indigo theme adds two more:
+
+- `.cards` — 3-column card grid (image on top, title + body below). Each card uses `<div class="card">` containing an image + `<div class="body">` with `### Title` and body text.
+- `.matrix` — 2x2 decision matrix. Each quadrant is `<div class="q">` (or `<div class="q alt">` for the alternate accent).
 
 ```html
 <div class="cols">

@@ -1,6 +1,6 @@
 /* @theme indigo */
 /* IndiGo Airlines deck — navy/white brand palette, executive-grade typography, */
-/* multiple cover variants for visual range. For PMs, architects, HoEs, VPs, CxOs. */
+/* multiple cover variants and layout helpers for visual range. */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -144,20 +144,20 @@ section > header {
 section > footer { bottom: 22px; }
 section > header { top: 22px; }
 
-/* Dark-variant footers / page numbers */
-section.title > footer,
+/* Dark-variant footers / page numbers (slides with navy backgrounds) */
 section.divider > footer,
 section.cover > footer,
 section.cover-bleed > footer,
-section.cover-geometric > footer,
-section.cover-split > footer { color: rgba(255, 255, 255, 0.55); }
+section.cover-geometric > footer { color: rgba(255, 255, 255, 0.55); }
 
-section.title::after,
 section.divider::after,
 section.cover::after,
 section.cover-bleed::after,
 section.cover-geometric::after,
-section.cover-split::after { color: rgba(255, 255, 255, 0.5); }
+section.cover-split::after { color: rgba(255, 255, 255, 0.6); }
+
+/* cover-split has white left + navy right — footer sits on white (gray), page number on navy (white above) */
+section.cover-split > footer { color: #94A3B8; }
 
 /* Layout helpers (require markdown.marp.html: "all") */
 .cols, .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
@@ -165,21 +165,84 @@ section.cover-split::after { color: rgba(255, 255, 255, 0.5); }
 .cols > *, .cols-2 > *, .cols-3 > * { min-width: 0; }
 .cols img, .cols-2 img, .cols-3 img { max-width: 100%; height: auto; }
 
-/* ============ Title slide ============ */
+/* Card grid (3-column with image-on-top + text-below pattern) */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-top: 12px;
+}
+.cards .card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.cards .card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  background: #EFF6FF;
+}
+.cards .card .body {
+  padding: 14px 16px 16px 16px;
+}
+.cards .card h3 {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  color: #001B94;
+}
+.cards .card p {
+  margin: 0;
+  font-size: 15px;
+  color: #4B5563;
+  line-height: 1.45;
+}
+
+/* 2x2 decision matrix */
+.matrix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+  margin-top: 12px;
+}
+.matrix .q {
+  padding: 18px 22px;
+  background: #F8FAFC;
+  border-radius: 8px;
+  border-left: 4px solid #001B94;
+}
+.matrix .q h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #001B94;
+}
+.matrix .q p,
+.matrix .q li {
+  margin: 0;
+  font-size: 16px;
+  color: #2F3A45;
+}
+.matrix .q.alt { border-left-color: #60A5FA; }
+.matrix .q.alt h3 { color: #1E40AF; }
+
+/* ============ Title slide (light variant — distinct from cover) ============ */
 section.title {
-  background: #001B94;
-  color: #FFFFFF;
+  background: #FFFFFF;
+  color: #1F2937;
   padding: 96px 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-top: 6px solid #001B94;
 }
-section.title::before {
-  filter: brightness(0) invert(1);
-  opacity: 1;
-}
+/* No invert — wordmark stays navy on white */
 section.title h1 {
-  color: #FFFFFF;
+  color: #001B94;
   font-size: 60px;
   font-weight: 800;
   letter-spacing: -0.035em;
@@ -188,23 +251,23 @@ section.title h1 {
   max-width: 1000px;
 }
 section.title h1::after {
-  background: rgba(255, 255, 255, 0.45);
+  background: #001B94;
   width: 72px;
-  height: 2px;
+  height: 3px;
   margin-top: 28px;
   border-radius: 0;
 }
 section.title p {
-  color: rgba(255, 255, 255, 0.8);
+  color: #4B5563;
   font-size: 22px;
   font-weight: 400;
-  margin-top: 28px;
+  margin-top: 24px;
   max-width: 700px;
 }
 
 /* ============ Cover variants ============ */
 
-/* cover — minimalist: solid navy, large title, no decoration. Most executive. */
+/* cover — minimalist: solid navy, large title, no decoration. */
 section.cover {
   background: #001B94;
   color: #FFFFFF;
@@ -240,12 +303,15 @@ section.cover p {
   max-width: 700px;
 }
 
-/* cover-bleed — full-bleed hero image with left-to-right gradient overlay */
+/* cover-bleed — full-bleed hero with gradient mask; plane shifted toward right */
 section.cover-bleed {
-  background:
-    linear-gradient(90deg, rgba(0, 27, 148, 0.95) 0%, rgba(0, 27, 148, 0.55) 50%, rgba(0, 27, 148, 0.15) 100%),
-    #001B94 url('https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/assets/indigo-cover.webp') no-repeat center center;
-  background-size: cover, cover;
+  background-color: #001B94;
+  background-image:
+    linear-gradient(90deg, rgba(0, 27, 148, 0.95) 0%, rgba(0, 27, 148, 0.7) 35%, rgba(0, 27, 148, 0.15) 75%, rgba(0, 27, 148, 0) 100%),
+    url('https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/assets/indigo-cover.webp');
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 100%, 130% auto;
+  background-position: 0 0, left center;
   color: #FFFFFF;
   padding: 96px 80px;
   display: flex;
@@ -263,7 +329,7 @@ section.cover-bleed h1 {
   letter-spacing: -0.035em;
   line-height: 1.05;
   margin: 0;
-  max-width: 650px;
+  max-width: 600px;
 }
 section.cover-bleed h1::after {
   background: #FFFFFF;
@@ -277,10 +343,10 @@ section.cover-bleed p {
   color: rgba(255, 255, 255, 0.9);
   font-size: 22px;
   margin-top: 24px;
-  max-width: 600px;
+  max-width: 560px;
 }
 
-/* cover-geometric — restrained square accents in bottom-right corner */
+/* cover-geometric — restrained square accents */
 section.cover-geometric {
   background-color: #001B94;
   background-image:
@@ -326,25 +392,28 @@ section.cover-geometric p {
   max-width: 620px;
 }
 
-/* cover-split — 50/50 navy + image (title left, hero right) */
+/* cover-split — white left (title), navy right with image (un-squished, centered) */
 section.cover-split {
-  background-color: #001B94;
-  background-image: url('https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/assets/indigo-cover.webp');
-  background-size: 50% 100%;
-  background-position: right center;
-  background-repeat: no-repeat;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  background-image:
+    url('https://raw.githubusercontent.com/Dev-Dipesh/marpit-themes/main/assets/indigo-cover.webp'),
+    linear-gradient(to right, transparent 0%, transparent 50%, #001B94 50%, #001B94 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 50% auto, 100% 100%;
+  background-position: right center, 0 0;
+  color: #1F2937;
   padding: 96px 50% 96px 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 section.cover-split::before {
+  /* wordmark on the navy right side — invert to white */
   filter: brightness(0) invert(1);
   opacity: 1;
 }
 section.cover-split h1 {
-  color: #FFFFFF;
+  color: #001B94;
   font-size: 48px;
   font-weight: 800;
   letter-spacing: -0.035em;
@@ -353,21 +422,20 @@ section.cover-split h1 {
   max-width: 500px;
 }
 section.cover-split h1::after {
-  background: rgba(255, 255, 255, 0.6);
+  background: #001B94;
   width: 56px;
-  height: 2px;
+  height: 3px;
   margin-top: 22px;
   border-radius: 0;
 }
 section.cover-split p {
-  color: rgba(255, 255, 255, 0.85);
+  color: #4B5563;
   font-size: 20px;
   margin-top: 22px;
   max-width: 500px;
 }
 
-/* ============ Other slide variants ============ */
-
+/* ============ Divider, takeaway, section ============ */
 section.divider {
   background: #001B94;
   color: #FFFFFF;
@@ -408,4 +476,58 @@ section.takeaway h1::after { background: #001B94; width: 56px; }
 section.section {
   border-top: 6px solid #001B94;
   padding-top: 64px;
+}
+
+/* ============ Key metric slide ============ */
+/* Huge single number + supporting line. Use for "the headline number". */
+section.metric {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+}
+section.metric h1 {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 144px;
+  font-weight: 800;
+  color: #001B94;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin: 0;
+}
+section.metric h1::after { display: none; }
+section.metric h2 {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1F2937;
+  margin-top: 24px;
+  letter-spacing: -0.015em;
+}
+section.metric p {
+  font-size: 20px;
+  color: #4B5563;
+  margin-top: 12px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============ Lefthand h1 + right content layout ============ */
+/* h1 stays in left column; subsequent content (lists, paragraphs) flows to right. */
+section.split-h {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 56px;
+  padding: 80px 64px;
+  align-items: start;
+}
+section.split-h > * {
+  grid-column: 2;
+}
+section.split-h > h1 {
+  grid-column: 1;
+  margin: 0;
+  align-self: start;
 }
