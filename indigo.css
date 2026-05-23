@@ -524,10 +524,10 @@ section.metric p {
 
 /* Split-word slide: top word above the split, bottom word below it. */
 section.word-split {
-  --word-split-top: #D71920;
+  --word-split-top: #001B94;
   --word-split-bottom: #FFFFFF;
 
-  background: linear-gradient(to bottom, #FFFFFF 0 50%, #000000 50% 100%);
+  background: linear-gradient(to bottom, #FFFFFF 0 50%, #001B94 50% 100%);
   display: block;
   padding: 0;
   text-align: center;
