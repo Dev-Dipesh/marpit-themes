@@ -51,7 +51,7 @@ Apply with `<!-- _class: <name> -->` on a slide:
 - `mckinsey` — `title`, `divider`, `takeaway`, `section`, `metric`, `split-h`, `cta`, `diagram-focus`, `chart-focus`
 - `tech` — `title`, `terminal`
 - `pitch` — `cover`, `light`, `quote`
-- `indigo` — `title` (light), `cover`, `cover-bleed`, `cover-geometric`, `cover-split`, `divider`, `takeaway`, `section`, `metric`, `split-h`
+- `indigo` — `title` (light), `cover`, `cover-bleed`, `cover-geometric`, `cover-split`, `divider`, `takeaway`, `section`, `metric`, `split-h`, `cta`
 
 ## Layout helpers
 
@@ -64,6 +64,16 @@ Indigo, consulting, and mckinsey themes add:
 
 - `.cards` — 3-column card grid (image on top, title + body below). Each card uses `<div class="card">` containing an image + `<div class="body">` with `### Title` and body text.
 - `.matrix` — 2x2 decision matrix. Each quadrant is `<div class="q">` (or `<div class="q alt">` for the alternate accent).
+- `.metric-row` + `.metric` — 4-column numeric KPI row with `.num` and `.label`.
+- `.glance-grid` + `.glance-card` — compact 4-column summary grid.
+- `.sequence-grid` + `.sequence-card` — two-card sequence or phase layout. Use `.step-num` for large numbers.
+- `.split-emphasis` + `.dark-box` + `.support-panel` — asymmetric two-column emphasis layout with a strong left anchor and right-side detail panel.
+- `.gate-matrix` — two-column dependency/risk matrix with `.head` and `.area` cells.
+- `.role-card-grid` + `.role-card` — two compact role/responsibility cards. Use `.role-card-title` for the card heading.
+- `.case-evidence` + `.case-claim` + `.evidence-grid` + `.evidence-list` + `.relevance-band` — case-study evidence slide with a bottom relevance band.
+- `.verification-layout` + `.check-panel` + `.check-row` + `.check-mark` — checklist plus contrast panel layout.
+- `.cta-panel` + `.cta-metrics` + `.cta-metric` + `.cta-next` — strong final decision / call-to-action slide content, usually with `<!-- _class: cta -->`.
+- `.callout` — accented left-rule callout.
 
 ```html
 <div class="cols">
